@@ -1,33 +1,69 @@
 //Front Screen Disappear On Click
-document.getElementById('start').addEventListener("click", hide);
+let questionNumber
 
+
+function startquiz() {
+    document.getElementById('start').addEventListener("click", hide);
+    getQuestion()
+}
 
 function hide() {
     document.getElementById('startingpage').style.visibility = 'hidden';
 }
 
-const quizq1 = [
+function getQuestion() {
+
+}
+
+function userChoice() {
+
+}
+
+const questions = [
     {
-        question: "Question 1",
-        options: ["1","2","3","4"],
-        correct: "2",
+        question: "Whats my name?",
+        options: [
+            {answer:'Bob', correct: false},
+            {answer: 'Jonathan', correct: true},
+            {answer: 'Jim', correct: false},
+            {answer: 'Ashley', correct: false}
+        ]
     },
     {
-        question: "Question 2",
-        options: ["1","2","3","4"],
-        correct: "3",
+        question: "Whats the sky?",
+        options: [
+            {answer:'Bob', correct: false},
+            {answer: 'Jonathan', correct: true},
+            {answer: 'Jim', correct: false},
+            {answer: 'Ashley', correct: false}
+        ]
     },
     {
-        question: "Question 2",
-        options: ["1","2","3","4"],
-        correct: "3",
-    },{
-        question: "Question 2",
-        options: ["1","2","3","4"],
-        correct: "3",
-    },{
-        question: "Question 2",
-        options: ["1","2","3","4"],
-        correct: "3",
+        question: "Whats the rain?",
+        options: [
+            {answer:'Bob', correct: false},
+            {answer: 'Jonathan', correct: true},
+            {answer: 'Jim', correct: false},
+            {answer: 'Ashley', correct: false}
+        ]
     },
+    {
+        question: "Whats my computer?",
+        options: [
+            {answer:'Bob', correct: false},
+            {answer: 'Jonathan', correct: true},
+            {answer: 'Jim', correct: false},
+            {answer: 'Ashley', correct: false}
+        ]
+    },
+    {
+        question: "Whats the point of life?",
+        options: [
+            {answer:'Bob', correct: false},
+            {answer: 'Jonathan', correct: true},
+            {answer: 'Jim', correct: false},
+            {answer: 'Ashley', correct: false}
+        ]
+    },
+    
 ]
