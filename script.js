@@ -1,9 +1,9 @@
 //Front Screen Disappear On Click
 let questionEl = document.getElementById('header');
-let choiceEl = document.getElementById('button');
+let answersEl = document.getElementById('answers');
 let questionNumber;
 let start = document.getElementById('start');
-let score;
+let score = 0;
 
 
 start.addEventListener('click', startquiz);
@@ -22,7 +22,7 @@ let questions = [
     {
         question: "Whats my name?",
         options: [
-            {answer:'Bob', correct: false},
+            {answer:'this', correct: false},
             {answer: 'Jonathan', correct: true},
             {answer: 'Jim', correct: false},
             {answer: 'Ashley', correct: false}
@@ -31,7 +31,7 @@ let questions = [
      {
          question: "Whats the sky?",
          options: [
-             {answer:'Bob', correct: false},
+             {answer:'', correct: false},
              {answer: 'Jonathan', correct: true},
              {answer: 'Jim', correct: false},
              {answer: 'Ashley', correct: false}
@@ -40,7 +40,7 @@ let questions = [
      {
          question: "Whats the rain?",
          options: [
-             {answer:'Bob', correct: false},
+             {answer:'this', correct: false},
              {answer: 'Jonathan', correct: true},
              {answer: 'Jim', correct: false},
              {answer: 'Ashley', correct: false}
@@ -66,14 +66,39 @@ let questions = [
      },
     
 ]
-console.log(questions[0].options[0].answer)
+/*console.log(questions[0].options[0].answer)*/
 function getQuestion() {
-    currentQuestion([questionNumber]);
+    currentQuestion();
     
 }
 
 function currentQuestion() {
     questionEl.textContent = questions[questionNumber].question;
+    let currentQuestion = questions[questionNumber]
+    console.log(currentQuestion);
+    let questionText = currentQuestion.question;
+    let options = currentQuestion.options;
+    for(i=0; i<options.length; i++) {
+        //create button element
+        let buttonEl = document.createElement('button')
+
+        //add text to button element
+        buttonEl.textContent = options[i].answer
+        let correct = options[i].correct
+        //add event listener to button element
+        buttonEl.addEventListener('click', function(){
+            console.log(correct)
+            if(correct) {
+                score = score + 10
+                console.log("correct")
+            }else {
+                console.log("wrong")
+            }
+            
+        })
+        //append button element to answers list
+        answersEl.append(buttonEl)
+    }
 }
 
 function userClick() {
