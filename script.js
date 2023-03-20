@@ -66,7 +66,7 @@ let questions = [
      },
     
 ]
-
+console.log(questions[0].options[0].answer)
 function getQuestion() {
     currentQuestion([questionNumber]);
     
@@ -80,6 +80,9 @@ function userClick() {
 
 }
 
+function buttons() {
+    
+}
 
 //I need to check the value of the correct answer
 //If correct, add points to score and move to next question.
