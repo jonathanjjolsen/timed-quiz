@@ -70,13 +70,12 @@ let questions = [
 
 function getQuestion() {
   renderQuestion();
+  console.log(questionNumber) 
 }
 
 function renderQuestion() {
   let currentQuestion = questions[questionNumber];
   questionEl.textContent = currentQuestion.question;
-
-  //let questionText = currentQuestion.question;
   let options = currentQuestion.options;
   answersEl.innerHTML = "";
   for (i = 0; i < options.length; i++) {
@@ -92,16 +91,18 @@ function renderQuestion() {
 }
 
 let timerEl = document.getElementById('timer')
-let timeLeft = 60;
+let timeLeft = 45;
 function timer() {
   
 
   let timeInvertval = setInterval(function () {
-    if (timeLeft > 1) {
-      timerEl.textContent = timeLeft;
-      timeLeft--;
-    } else {
+    if (timeLeft < 0 || questionNumber > questions.length - 1) {
+      timerEl.textContent = "";
       clearInterval(timeInvertval);
+      displayScore();
+    } else if (timeLeft > -1) {
+      timerEl.textContent = "Time: " + timeLeft;
+      timeLeft--;
     }
   }, 1000);
 }
@@ -112,20 +113,31 @@ answersEl.addEventListener("click", function (e) {
   if (!element.matches("button")) return;
   let currentQuestion = questions[questionNumber];
   const index = element.dataset.index;
-  console.log(index);
+  //console.log(index);
   const correct = currentQuestion.options[index].correct;
 
-  console.log(correct);
+  //console.log(correct);
 
   if (correct) {
     score = score + 10;
-    console.log("correct");
+    //console.log("correct");
   } else {
-    console.log("wrong");
+    //console.log("wrong");
     timeLeft = timeLeft - 10;
   }
   questionNumber++;
-  console.log(score);
-  getQuestion();
+  if(questionNumber > questions.length-1) {
+    displayScore();
+  }else{
+    getQuestion();
+  }
 });
+
+
+let userScore = document.getElementById("userScore")
+
+function displayScore() {
+  document.getElementById("submit").style.visibility = "visible";
+  userScore.textContent = "Your final score is " + score + ".";
+}
 
