@@ -1,26 +1,33 @@
 * {
     font-size: 25px;
     font-family: Trebuchet MS;
-}
-
-.wrapper {
+  }
+  
+  .wrapper {
     margin: 0 auto;
     width: 40%;
     display: flex;
     flex-direction: column;
     position: relative;
-}
-
-
-li button {
-    background-color:rgb(138, 89, 184);
-    border-radius: 8px;
-}
-
-#startingpage {
+  }
+  
+  #startingpage {
     position: absolute;
     background-color: white;
     padding-bottom: 20%;
     text-align: center;
     padding-top: 10%;
-}
+  }
+  
+  #answers {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  
+  #answers button {
+    background-color: rgb(138, 89, 184);
+    border-radius: 8px;
+    margin-top: 10px;
+    min-width: 150px;
+  }

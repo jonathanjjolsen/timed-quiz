@@ -1,42 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="style.css">
-    <link rel="stylesheet" href ="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Timed Quiz</title>
-</head>
+  </head>
 
-<body>
-     <!-- I need to make a nav that has a link to high scores, as well as displays the time left in the quiz. -->
+  <body>
     <header>
-        <div>
-            <a href="High Scores">View Highscores</a>
+      <div>
+        <a href="High Scores">View Highscores</a>
+      </div>
+      <div class="wrapper">
+        <div id="startingpage">
+          <h2>Coding Quiz Challenge</h2>
+          <p>
+            Try to answer the following code-related questions within the time
+            limit. Keep in mind that incorrect answers will penalize your timer
+            by 10 seconds.
+          </p>
+          <p>
+            <button id="start">Start Quiz</button>
+          </p>
         </div>
-        <div class="wrapper">
-            <div id="startingpage">
-                <h2>Coding Quiz Challenge</h2>
-                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your timer by 10 seconds.<p>
-                <button id="start">Start Quiz</button>
-            </div>
-            <h2 class="header" id="header">Box header here.<h2>
-            <ul id="answers">
-                <li><button class="button">Answer 1</button></li>
-                <li><button class="button">Answer 2</button></li>
-                <li><button class="button">Answer 3</button></li>
-                <li><button class="button">Answer 4</button></li>
-            </ul>
-        </div>
-        
 
-
+        <h2 class="header" id="header">Box header here.</h2>
+        <div id="answers"></div>
+      </div>
     </header>
-        <!-- I need a wrapper that displays over the quiz. -->
-        <!-- I need a div that holds the questions. -->
-        <!-- I need an area to hold the question choices. -->
-        <script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
