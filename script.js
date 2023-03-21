@@ -5,6 +5,7 @@ let questionNumber;
 let start = document.getElementById("start");
 let score = 0;
 
+
 start.addEventListener("click", startquiz);
 
 function startquiz() {
@@ -139,5 +140,21 @@ let userScore = document.getElementById("userScore")
 function displayScore() {
   document.getElementById("submit").style.visibility = "visible";
   userScore.textContent = "Your final score is " + score + ".";
+  let submitBtn = document.getElementById('submitBtn');
+  let user = document.getElementById('initials');
+  let finalScore = score;
+
+submitBtn.addEventListener('click', e => {
+  let initialsValue = user.value;
+  console.log(initialsValue)
+  let scores ={
+    score: finalScore,
+    name: initialsValue,
+  }
+
+  let stringyScores = JSON.stringify(scores);
+  localStorage.setItem('highScores', stringyScores);
+})
 }
+
 
