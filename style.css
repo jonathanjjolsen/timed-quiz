@@ -2,6 +2,15 @@
     font-size: 25px;
     font-family: Trebuchet MS;
   }
+
+  #top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #top p {
+    margin: 0;
+  }
   
   .wrapper {
     margin: 0 auto;

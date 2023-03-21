@@ -11,6 +11,7 @@ function startquiz() {
   hide();
   questionNumber = 0;
   getQuestion();
+  timer();
 }
 
 function hide() {
@@ -65,6 +66,8 @@ let questions = [
   },
 ];
 
+
+
 function getQuestion() {
   renderQuestion();
 }
@@ -84,10 +87,23 @@ function renderQuestion() {
     buttonEl.textContent = options[i].answer;
     buttonEl.setAttribute("data-index", i);
     buttonEl.classList.add("button");
-    //add event listener to button element
-    //append button element to answers list
     answersEl.append(buttonEl);
   }
+}
+
+let timerEl = document.getElementById('timer')
+let timeLeft = 60;
+function timer() {
+  
+
+  let timeInvertval = setInterval(function () {
+    if (timeLeft > 1) {
+      timerEl.textContent = timeLeft;
+      timeLeft--;
+    } else {
+      clearInterval(timeInvertval);
+    }
+  }, 1000);
 }
 
 answersEl.addEventListener("click", function (e) {
@@ -106,8 +122,10 @@ answersEl.addEventListener("click", function (e) {
     console.log("correct");
   } else {
     console.log("wrong");
+    timeLeft = timeLeft - 10;
   }
   questionNumber++;
-
+  console.log(score);
   getQuestion();
 });
+
