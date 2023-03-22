@@ -1,0 +1,12 @@
+# Timed-Quiz
+
+## Description:
+This project is a timed quiz that will take in answers from a user and then give a final score at the end. Depending on the value of the users choice, the correct answer will add points and the incorrect answer will take time off of the timer. At the end of the quiz, the final score is displayed and the user has the ability to put in their initals to save the value.
+
+## Usage:
+After loading up the page and reading the instructions, clicking on the 'Start' button will activate the quiz. The timer will start and the user must choice an answer for each question. If the answer is wrong, they will lose time off of their timer. If the answer is correct, they will add 10 points to their score. When the quiz is finished, the users score will be shown and the oportunity to store their initals will be available. After inputing their info, the user will be taken to the 'highscores' page where they can view other scores, go back to the quiz, or clear the history of scores.
+
+## Link to Deployed URL: https://jonathanjjolsen.github.io/timed-quiz/
+
+## Screenshot: 
+![timed-quiz](Assets\image.png)
