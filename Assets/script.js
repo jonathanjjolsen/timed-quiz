@@ -1,11 +1,11 @@
-//Front Screen Disappear On Click
+//Declared variables and DOM elements
 let questionEl = document.getElementById("header");
 let answersEl = document.getElementById("answers");
 let questionNumber;
 let start = document.getElementById("start");
 let score = 0;
 
-
+//Start Quiz Logic
 start.addEventListener("click", startquiz);
 
 function startquiz() {
@@ -19,6 +19,7 @@ function hide() {
   document.getElementById("startingpage").style.visibility = "hidden";
 }
 
+//Object to hold questions and answers
 let questions = [
   {
     question: "Whats my name?",
@@ -68,7 +69,7 @@ let questions = [
 ];
 
 
-
+//Function to continue populating new questions and answers
 function getQuestion() {
   renderQuestion();
   console.log(questionNumber) 
@@ -80,17 +81,19 @@ function renderQuestion() {
   let options = currentQuestion.options;
   answersEl.innerHTML = "";
   for (i = 0; i < options.length; i++) {
-    //create button element
+    //Create button element
     let buttonEl = document.createElement("button");
 
-    //add text to button element
+    //Add text to button element
     buttonEl.textContent = options[i].answer;
     buttonEl.setAttribute("data-index", i);
     buttonEl.classList.add("button");
+    //Add new buttons to page
     answersEl.append(buttonEl);
   }
 }
 
+//Logic for Quiz Timer
 let timerEl = document.getElementById('timer')
 let timeLeft = 45;
 function timer() {
@@ -114,16 +117,12 @@ answersEl.addEventListener("click", function (e) {
   if (!element.matches("button")) return;
   let currentQuestion = questions[questionNumber];
   const index = element.dataset.index;
-  //console.log(index);
   const correct = currentQuestion.options[index].correct;
-
-  //console.log(correct);
-
+  
+  //Logic to determine if points are added or time is subtracted
   if (correct) {
     score = score + 10;
-    //console.log("correct");
   } else {
-    //console.log("wrong");
     timeLeft = timeLeft - 10;
   }
   questionNumber++;
@@ -137,6 +136,7 @@ answersEl.addEventListener("click", function (e) {
 
 let userScore = document.getElementById("userScore")
 
+//Function to display window of score recieved and take input for initials
 function displayScore() {
   document.getElementById("submit").style.visibility = "visible";
   userScore.textContent = "Your final score is " + score + ".";
@@ -145,6 +145,7 @@ function displayScore() {
   let finalScore = score;
 
 submitBtn.addEventListener('click', e => {
+  e.preventDefault();
   let initialsValue = user.value;
   console.log(initialsValue)
   let scores ={
@@ -152,8 +153,15 @@ submitBtn.addEventListener('click', e => {
     name: initialsValue,
   }
 
-  let stringyScores = JSON.stringify(scores);
-  localStorage.setItem('highScores', stringyScores);
+  
+  localStorage.setItem('highScores', JSON.stringify(scores));
+  moveToScores();
+  
+
+  function moveToScores() {
+    window.location.href="highscores.html";
+  }
+
 })
 }
 

@@ -66,4 +66,32 @@
   border-radius: 4px;
 }
 
+#container {
+  display: flex;
+  flex-direction:column;
+  text-align: center;
+}
+
+#highscores{
+  font-size: 50px;
+}
+
+#backBtn {
+  background-color: rgb(138, 89, 184);
+  border-radius: 4px;
+}
+
+#clearBtn {
+  background-color: rgb(138, 89, 184);
+  border-radius: 4px;
+  margin-left: 1%;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+}
+
+
+
 
